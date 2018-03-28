@@ -28,4 +28,13 @@ class SongsController < ApplicationController
     flash[:message] = "Successfully created song."
     redirect "/songs/#{@song.slug}"
   end
+
+  get '/songs/:id/edit' do
+    @song = Song.find_by_id(params[:id])
+    erb :edit
+  end
+
+  patch '/songs' do
+
+  end
 end

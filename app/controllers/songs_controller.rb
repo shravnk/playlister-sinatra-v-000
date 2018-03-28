@@ -34,7 +34,7 @@ class SongsController < ApplicationController
     erb :edit
   end
 
-  patch '/songs' do
+  post '/songs/:slug' do
 
   end
 end

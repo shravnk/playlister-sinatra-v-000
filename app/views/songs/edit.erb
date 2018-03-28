@@ -1,12 +1,9 @@
 <h1>Create a new Song</h1>
 
-<form action="/songs" method="post">
-  <label>Name:</label>
-
-  <br></br>
-
-  <p><input type="text" name="song_name" id="Name" value="<%= @song.name %>"></p>
-
+<form action="/songs/<%= @song.slug %>" method="post">
+  <h3>Song: <%= @song.name %></h3>
+  
+  <input type="hidden" name="_method" value="PATCH">
   <br></br>
 
   <%Genre.all.each do |genre|%>
@@ -14,7 +11,7 @@
   <%end%>
 
     <label>Artist name:</label>
-      <input  type="text" name="artist_name" id="Artist Name"></input>
+      <input  type="text" name="artist_name" id="Artist Name" value="<%= @song.artist.name %>"></input>
     <br></br>
 
   <input type="submit" value="Create">
